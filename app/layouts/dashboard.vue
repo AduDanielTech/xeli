@@ -378,4 +378,15 @@ const toggleSidebar = () => {
 const closeSidebar = () => {
   mobileSidebarOpen.value = false
 }
+
+ const handleLogout = async () => {
+    await authStore.logout()
+    router.push('/login')
+  }
+
+  onMounted(() => {
+    if (!authStore.isLoggedIn) {
+      router.push('/login')
+    }
+  })
 </script>
